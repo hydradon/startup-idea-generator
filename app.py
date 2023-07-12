@@ -9,6 +9,7 @@
 import cohere
 import streamlit as st
 import os
+import time
 
 # Cohere API key
 api_key = os.environ["CO_KEY"]
@@ -162,7 +163,9 @@ with form:
             for i in range(num_input):
                 st.markdown("""---""")
                 startup_idea = generate_idea(industry_input, creativity_input)
+                time.sleep(1)
                 startup_name = generate_name(startup_idea, creativity_input)
+                time.sleep(1)
                 st.markdown("##### " + startup_name)
                 st.write(startup_idea)
                 my_bar.progress((i + 1) / num_input)
